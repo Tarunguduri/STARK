@@ -1,0 +1,114 @@
+{
+    "Open Palm": [
+        {
+            "action": "create_folder",
+            "params": {
+                "value": "ai_project"
+            }
+        },
+        {
+            "action": "launch_app",
+            "params": {
+                "app_name": "vscode",
+                "path": "ai_project"
+            }
+        },
+        {
+            "action": "delay",
+            "params": {
+                "seconds": 3.0
+            }
+        },
+        {
+            "action": "open_terminal",
+            "params": {}
+        },
+        {
+            "action": "play_media",
+            "params": {
+                "platform": "youtube",
+                "query": "lofi music"
+            }
+        }
+    ],
+    "Peace Sign": [
+        {
+            "action": "run_terminal",
+            "params": {
+                "command": "start brave"
+            }
+        },
+        {
+            "action": "delay",
+            "params": {
+                "seconds": 2.0
+            }
+        },
+        {
+            "action": "play_media",
+            "params": {
+                "platform": "youtube",
+                "query": "latest ai research news 2026"
+            }
+        },
+        {
+            "action": "open_url",
+            "params": {
+                "url": "https://arxiv.org"
+            }
+        }
+    ],
+    "Rock Sign": [
+        {
+            "action": "play_media",
+            "params": {
+                "platform": "youtube",
+                "query": "the weeknd playlist"
+            }
+        },
+        {
+            "action": "set_volume",
+            "params": {
+                "value": 70
+            }
+        }
+    ],
+    "Fist": [
+        {
+            "action": "close_apps",
+            "params": {
+                "value": [
+                    "chrome",
+                    "spotify"
+                ]
+            }
+        },
+        {
+            "action": "press_key",
+            "params": {
+                "key": "win+d"
+            }
+        },
+        {
+            "action": "set_volume",
+            "params": {
+                "value": 0
+            }
+        }
+    ],
+    "Pointing": [
+        {
+            "action": "run_terminal",
+            "params": {
+                "command": "start brave"
+            }
+        }
+    ],
+    "Single Finger": [
+        {
+            "action": "activate_listening",
+            "params": {}
+        }
+    ],
+    "OK Sign": []
+}

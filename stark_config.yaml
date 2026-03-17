@@ -1,0 +1,39 @@
+action_timeout: 60
+adaptive_batch_sizing: true
+auto_index_on_startup: false
+auto_save_conversations: false
+backup_location: C:\STARK_Backups
+cpu_threshold_percent: 80
+data_retention_days: 30
+debug_mode: false
+delete_confirmation_threshold: 10
+disabled_plugins: []
+encrypt_logs: false
+exclude_paths:
+- '*\Windows\*'
+- '*\Program Files\*'
+- '*\node_modules\*'
+- '*\.git\*'
+file_index_enabled: false
+groq_model: llama-3.1-8b-instant
+index_locations:
+- C:\Users\gudur
+interface_mode: cli
+max_concurrent_actions: 5
+max_retries: 3
+move_confirmation_threshold: 50
+ocr_engine: tesseract
+plugin_directories:
+- plugins
+protected_paths:
+- C:\Windows
+- C:\Program Files
+- C:\Program Files (x86)
+ram_threshold_percent: 85
+retry_delay: 1.0
+screen_capture_interval: 5
+screen_enabled: true
+theme: dark
+timeout: 10
+use_gpu: false
+voice_enabled: false
