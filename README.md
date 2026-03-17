@@ -1,98 +1,90 @@
-# STARK
+# 🦾 STARK: Hybrid AI Desktop Assistant
 
-STARK is a Windows-focused desktop assistant that combines:
-- chat-based automation
-- gesture-triggered workflows
-- voice input/output
-- screen OCR
-- AI planning via Groq
+STARK is a powerful, Windows-focused desktop assistant that merges LLM reasoning with advanced OS automation, computer vision, and voice interaction. It's designed to be your ultimate digital companion, handling everything from coding workspaces to media control via natural language and gestures.
 
-## Features
+---
 
-### App automation
-- Finds installed Windows apps through multiple discovery methods
-- Launches apps, opens URLs, runs terminal commands, types text, presses keys, and controls media
+## 🚀 Key Features
 
-### Media playback
-- YouTube opens the first matching video directly
-- Spotify opens the desktop app, searches for the requested track, and starts playback
+### 🔍 Smart App Automation
+- **Multi-Discovery Engine:** Finds apps via Registry, Shell, Start Menu, and WindowsApps (UWP).
+- **Control Everything:** Launch apps, open URLs, run terminal commands, type text, and press hotkeys.
 
-### Gesture workflows
-- `Open Palm`: coding workspace
-- `Peace Sign`: research mode
-- `Rock Sign`: entertainment mode
-- `Fist`: focus mode
-- `Pointing`: browser
-- `Single Finger`: listening mode
-- `OK Sign`: documentation search
+### 🎵 Seamless Media Playback
+- **YouTube Direct:** Instantly opens and plays the first matching video result in your browser.
+- **Spotify Pro:** Launches the desktop app, searches for your track, and hits play automatically.
 
-These workflows are customizable directly from chat.
+### 🖐 Gesture-Triggered Workflows
+STARK recognizes distinct hand gestures to trigger complex multi-step automations:
 
-### Chat-based customization
-Examples:
-- `add contact "John Doe" +91 99999 99999`
-- `show contacts`
-- `remove contact "Dad"`
-- `show gestures`
-- `set gesture "Open Palm" to open vscode and play coding music`
-- `bind gesture "Rock Sign" to entertainment mode`
-- `reset gesture "Open Palm"`
+| Gesture | Mode | Workflow Description |
+| :--- | :--- | :--- |
+| ✋ **Open Palm** | **Coding Workspace** | Opens VS Code, creates project folder, opens terminal, plays lofi. |
+| ✌️ **Peace Sign** | **Research Mode** | Opens Brave browser, searches AI news, opens arXiv. |
+| 🤟 **Rock Sign** | **Entertainment** | Opens YouTube party playlist and sets volume to 70%. |
+| ✊ **Fist** | **Focus Mode** | Mutes system, closes distractions (Chrome/Spotify), opens Notepad. |
+| 👉 **Pointing** | **Quick Browser** | Instantly launches the Brave browser. |
+| ☝️ **Single Finger** | **AI Assistant** | Activates "Listening Mode" for voice commands. |
+| 👌 **OK Sign** | **Documentation** | Triggers a search for STARK project documentation. |
 
-### API key onboarding
-- On first run, STARK prompts for the Groq API key
-- The key is saved automatically
-- Users do not need to edit `.env` for normal use
+---
 
-## User Data
+## 💬 Natural Language Customization
 
-STARK stores user-editable files in:
+STARK is highly flexible. You can manage contacts and customize your assistant directly through the chat:
 
-`%APPDATA%\STARK\`
+- **Contacts:** `"add contact 'John Doe' +91 99999 99999"` | `"show contacts"`
+- **Workflows:** `"set gesture 'Open Palm' to open vscode and play coding music"`
+- **Resets:** `"reset gesture 'Open Palm'"`
 
-That folder contains:
-- `settings.json`
-- `contacts.json`
-- `workflows.json`
-- `stark_config.yaml`
+---
 
-Bundled defaults are copied there automatically on first run.
+## 🛠 Installation & Setup
 
-## Run
+### 1. Requirements
+Ensure you have **Python 3.8+** installed. For screen reading (OCR), [install Tesseract OCR](https://github.com/UB-Mannheim/tesseract/wiki) and ensure `tesseract` is in your PATH.
 
-### Install
+### 2. Install Dependencies
 ```powershell
 python -m venv stark_venv
-.\stark_venv\Scripts\pip install -r requirements.txt
+.\stark_venv\Scripts\activate
+pip install -r requirements.txt
 ```
 
-### Launch
+### 3. Launch
 ```powershell
+# Standard GUI Mode
 python stark_launcher.py
-```
 
-### Optional CLI mode
-```powershell
+# Optional CLI Mode
 python stark_launcher.py --cli
 ```
 
-## OCR
+> [!NOTE]
+> On the first run, STARK will prompt you for your **Groq API Key**. This is saved securely to your local configuration.
 
-For `read screen`, install Tesseract OCR on Windows and ensure `tesseract --version` works in a terminal.
+---
 
-## Important Files
+## 📂 Project Structure
 
-| File | Purpose |
-|---|---|
-| `stark.py` | Core assistant logic |
-| `stark_gui.py` | Tkinter GUI and gesture loop |
-| `stark_launcher.py` | Main entry point |
-| `core/app_scanner.py` | Windows app discovery |
-| `core/automation_ops.py` | Desktop action execution |
-| `core/media_play.py` | Spotify/YouTube/Netflix actions |
-| `core/whatsapp_message.py` | WhatsApp desktop messaging + contacts |
-| `core/reasoning.py` | Workflow/contact parsing and persistence |
-| `core/user_settings.py` | `%APPDATA%\STARK` settings and data paths |
-| `core/workflow_engine.py` | Workflow execution + cooldown logging |
-| `vision/gesture_detector.py` | Gesture recognition |
+| File/Directory | Purpose |
+| :--- | :--- |
+| `stark.py` | Core assistant brain and reasoning engine. |
+| `stark_gui.py` | Tkinter-based interface and gesture loop. |
+| `stark_launcher.py` | Main entry point for the application. |
+| `core/app_scanner.py` | Advanced Windows application discovery. |
+| `core/automation_ops.py`| Desktop action execution (GhostController). |
+| `core/media_play.py` | Spotify, YouTube, and Netflix automation. |
+| `core/whatsapp_message.py`| WhatsApp Desktop messaging and contacts. |
+| `core/reasoning.py` | AI workflow parsing and persistence. |
+| `core/user_settings.py` | Handles `%APPDATA%\STARK` data paths. |
+| `core/workflow_engine.py` | Executes multi-step gesture sequences. |
+| `vision/gesture_detector.py`| MediaPipe-powered gesture recognition. |
 
+---
 
+## 🔐 User Data & Privacy
+STARK stores all persistent data (settings, workflows, contacts) locally in:
+`%APPDATA%\STARK\`
+
+This ensures your configurations are preserved between updates and remain private on your machine.
