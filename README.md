@@ -95,32 +95,4 @@ For `read screen`, install Tesseract OCR on Windows and ensure `tesseract --vers
 | `core/workflow_engine.py` | Workflow execution + cooldown logging |
 | `vision/gesture_detector.py` | Gesture recognition |
 
-## Windows Build
 
-STARK now includes Windows packaging scaffolding.
-
-### Build requirements
-```powershell
-.\stark_venv\Scripts\pip install -r requirements_build.txt
-```
-
-### Build the app
-```powershell
-.\build_windows.ps1
-```
-
-Output:
-
-`.\dist\STARK\`
-
-### Notes
-- The build is configured for Windows `onedir` packaging
-- User data stays in `%APPDATA%\STARK`, so updating the app does not wipe contacts/workflows/settings
-- Tesseract is still an external Windows dependency for OCR
-
-## Typical Setup For End Users
-
-1. Launch `STARK.exe`
-2. Enter the Groq API key once
-3. Use the chatbot to manage contacts and gestures
-4. Use gestures, chat, voice, and screen automation normally
