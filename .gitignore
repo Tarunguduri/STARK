@@ -9,6 +9,7 @@ build/
 dist/
 release/
 ai_project/
+assets/Scripts/
 
 *.log
 *.db
